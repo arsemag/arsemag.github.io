@@ -1,0 +1,35 @@
+body {
+  background-color: lightblue;
+  color: black;
+  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 2rem 1.5rem;
+}
+
+h1 {
+  color: white;
+}
+
+h3 {
+  color: black;
+}
+
+.section-label {
+  color: white;
+}
+
+.intro {
+  background-color: teal;
+  color: black;
+  padding: 1rem;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+}
+
+#pdf-container {
+  display: none;
+}

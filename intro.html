@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arsema's Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <h1>Arsema Gebreyesus's Personal Website</h1>
+
+  <p class="section-label">Background Information</p>
+
+  <p class="intro">Hi there! I have made the decision to utilize this website to present a visual
+    representation of myself as a person and a student. The website's purpose is to help me, as a
+    novice in this field, broaden my knowledge of various programming languages, including HTML and
+    JavaScript. I hope this website excites you as much as it does me. My contact information is at
+    the bottom if you need further information.</p>
+
+  <p>Click Button To View Resume Below</p>
+
+  <button onclick="showPDF ()">Resume</button>
+  <div id="pdf-container">
+    <embed id="pdf-viewer" type="application/pdf" width="600" height="400">
+  </div>
+  <script>
+    function showPDF () {
+      var pdfContainer = document.getElementById("pdf-container");
+      var pdfViewer = document.getElementById("pdf-viewer");
+
+      if (pdfContainer.style.display === "none" || pdfContainer.style.display === "") {
+        pdfContainer.style.display = "block";
+      } else {
+        pdfContainer.style.display = "none";
+      }
+
+      pdfViewer.src = "file:///Users/arsemag/Downloads/Combined%20Resume%20%20.pdf";
+    }
+  </script>
+
+  <h3>Projects</h3>
+  <p>Pipe Fantasy</p>
+  <p>Personal Website</p>
+
+  <dl>
+    <dt>
+      <a href="https://github.com/arsemag" target="_blank" title="Want to see my GitHub">GitHub</a>
+    </dt>
+    <dd>A website that shows different pieces of code I have worked on in the past</dd>
+  </dl>
+
+  <h3>Volunteer</h3>
+
+  <dl>
+    <dt>Working with Kids in Lynn</dt>
+    <dd>Created a lesson plan with different ways to learn how to code and website to practice on</dd>
+  </dl>
+
+  <h3>Contact Information</h3>
+
+  <p>
+    <a href="mailto:gebreyesus.a@northeastern.edu" title="school email">School Email</a>
+  </p>
+  <p>
+    <a href="mailto:arsemagebr@gmail.com" title="personal email">Personal Email</a>
+  </p>
+
+</body>
+
+</html>
