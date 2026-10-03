@@ -1,35 +1,689 @@
+/* ==========================================================
+   Theme: "Sunlit Shield"
+   Baby blue sky + butter-yellow sunflower warmth, held together
+   by deep navy — soft and friendly, but structured and secure.
+   Cybersecurity (shields, grids) meets Criminal Justice (scales).
+   ========================================================== */
+
+:root {
+  --baby-blue: #bde3f4;
+  --sky: #8ccbe8;
+  --deep-sky: #3b8fc2;
+  --butter-yellow: #fdeeab;
+  --navy: #1d3557;
+  --white: #ffffff;
+  --black: #000000;
+
+  --font-display: Papyrus, "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(29, 53, 87, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: lightblue;
-  color: black;
-  font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  background-color: var(--baby-blue);
+  /* faint dot grid — a quiet nod to circuits and data */
+  background-image: radial-gradient(rgba(29, 53, 87, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--navy);
+  font-family: var(--font-body);
+  line-height: 1.6;
   margin: 0;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1.5rem 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
-h1 {
-  color: white;
+/* ---------- Decorative background shapes ---------- */
+
+.shape {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  /* gentle drift so the background feels alive */
+  animation: float 9s ease-in-out infinite;
 }
 
-h3 {
-  color: black;
+@keyframes float {
+  50% {
+    translate: 0 -16px;
+  }
 }
+
+/* big blue outline ring, peeking in from the left */
+.shape-ring {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 18px solid var(--sky);
+  top: 380px;
+  left: -110px;
+  opacity: 0.6;
+}
+
+/* dashed ring, top right */
+.shape-ring-dashed {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 5px dashed var(--deep-sky);
+  top: -70px;
+  right: -60px;
+  opacity: 0.35;
+  animation-duration: 12s;
+}
+
+/* small yellow ring, lower left */
+.shape-ring-small {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid var(--butter-yellow);
+  bottom: 12%;
+  left: 12%;
+  opacity: 1;
+  animation-delay: -3s;
+}
+
+/* outlined rounded square, tilted, in yellow */
+.shape-square {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  border: 7px solid var(--butter-yellow);
+  rotate: 20deg;
+  top: 180px;
+  left: 8%;
+  opacity: 1;
+  animation-delay: -5s;
+}
+
+/* soft butter-yellow hexagon — a nod to security "honeycomb" networks */
+.shape-hex {
+  width: 140px;
+  height: 160px;
+  background: var(--butter-yellow);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  bottom: 160px;
+  right: 6%;
+  opacity: 1;
+  animation-duration: 11s;
+}
+
+/* little grid of dots, like a data matrix */
+.shape-dots {
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(var(--navy) 3px, transparent 3.5px);
+  background-size: 20px 20px;
+  top: 45%;
+  right: 3%;
+  opacity: 0.18;
+  animation-duration: 14s;
+}
+
+/* soft butter-yellow triangle */
+.shape-triangle {
+  width: 110px;
+  height: 100px;
+  background: var(--butter-yellow);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  rotate: -12deg;
+  top: 28%;
+  right: 30%;
+  opacity: 1;
+  animation-delay: -4s;
+}
+
+/* outlined capsule, bottom right */
+.shape-pill {
+  width: 150px;
+  height: 56px;
+  border-radius: 999px;
+  border: 5px solid var(--sky);
+  rotate: -30deg;
+  bottom: 6%;
+  right: 28%;
+  opacity: 0.6;
+  animation-duration: 10s;
+  animation-delay: -1s;
+}
+
+/* ---- extra butter-yellow shapes ---- */
+
+/* soft organic blob, mid left */
+.shape-blob {
+  width: 170px;
+  height: 150px;
+  background: var(--butter-yellow);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  top: 62%;
+  left: -40px;
+  animation-duration: 13s;
+}
+
+/* big butter-yellow outline ring, lower right */
+.shape-ring-yellow {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 14px solid var(--butter-yellow);
+  bottom: -60px;
+  right: -50px;
+  animation-delay: -2s;
+}
+
+/* small tilted diamond near the top */
+.shape-diamond {
+  width: 46px;
+  height: 46px;
+  background: var(--butter-yellow);
+  border-radius: 8px;
+  rotate: 45deg;
+  top: 110px;
+  left: 30%;
+  animation-delay: -6s;
+}
+
+/* half circle, like a rising sun */
+.shape-half {
+  width: 130px;
+  height: 65px;
+  background: var(--butter-yellow);
+  border-radius: 130px 130px 0 0;
+  rotate: 15deg;
+  top: 38%;
+  left: 22%;
+  animation-duration: 12s;
+  animation-delay: -7s;
+}
+
+/* grid of butter-yellow dots, upper left */
+.shape-dots-yellow {
+  width: 140px;
+  height: 100px;
+  background-image: radial-gradient(var(--butter-yellow) 4px, transparent 4.5px);
+  background-size: 20px 20px;
+  top: 40px;
+  left: 2%;
+  animation-duration: 15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shape {
+    animation: none;
+  }
+}
+
+/* ---------- Social icons (top right corner) ---------- */
+
+.social {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+  z-index: 2;
+}
+
+.social a {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--butter-yellow);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  box-shadow: 3px 3px 0 var(--navy);
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.social a:hover {
+  background: var(--white);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--navy);
+}
+
+.social svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Navigation ---------- */
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 2.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.section-nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+}
+
+.section-nav a:hover {
+  background-color: var(--butter-yellow);
+}
+
+.section-nav a.active {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+/* ---------- Layout ---------- */
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 3.5rem;
+}
+
+/* ---------- Hero ---------- */
+
+/* name on the left, sunflower on the right */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1.5rem 0;
+}
+
+.hero-text {
+  flex: 1 1 auto;
+  max-width: 560px;
+  text-align: left;
+}
+
+/* "My name is ..." as a yellow sticker-style tag */
+.name-intro {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.2rem 1rem;
+  background: var(--butter-yellow);
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  rotate: -3deg;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0.25rem 0 1rem;
+  color: var(--navy);
+}
+
+/* short gold-to-blue accent bar under the name */
+.name::after {
+  content: "";
+  display: block;
+  width: 110px;
+  height: 6px;
+  margin-top: 0.6rem;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--butter-yellow), var(--deep-sky));
+}
+
+.tagline {
+  font-size: 1.15rem;
+  margin: 1.25rem 0 1rem;
+}
+
+/* yellow marker underline on the key words */
+.tagline strong {
+  background: linear-gradient(transparent 60%, var(--butter-yellow) 60%);
+}
+
+
+/* sunflower photo framed in a circle */
+.portrait {
+  position: relative;
+  flex: 0 0 auto;
+  width: 240px;
+  height: 240px;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  /* white gap, then a butter-yellow outline */
+  border: 6px solid var(--white);
+  outline: 6px solid var(--butter-yellow);
+  box-shadow: var(--shadow);
+}
+
+/* dashed blue orbit ring around the photo */
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  border: 3px dashed var(--deep-sky);
+  opacity: 0.5;
+}
+
+/* ---------- Headings & cards ---------- */
 
 .section-label {
-  color: white;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+
+.section-label::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 6px;
+  margin: 0.4rem auto 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--butter-yellow), var(--deep-sky));
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  text-align: center;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.page-subtitle {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+}
+
+.intro,
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.75rem;
 }
 
 .intro {
-  background-color: teal;
-  color: black;
-  padding: 1rem;
+  /* warm white-to-butter wash with a sunflower edge */
+  background: linear-gradient(135deg, var(--white) 55%, var(--butter-yellow));
+  border-left: 8px solid var(--butter-yellow);
+  font-size: 1.05rem;
+  margin: 0;
 }
 
-button {
-  width: 200px;
-  height: 50px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
 }
 
-#pdf-container {
-  display: none;
+.card {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(29, 53, 87, 0.18);
+}
+
+.card h4 {
+  font-size: 1.2rem;
+  margin: 0.75rem 0 0.4rem;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card a {
+  color: var(--deep-sky);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.card .icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--butter-yellow);
+}
+
+.card .icon.blue {
+  background: var(--baby-blue);
+}
+
+.card .icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.card.wide {
+  grid-column: 1 / -1;
+}
+
+.card .meta {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--deep-sky);
+}
+
+/* ---------- Experience timeline ---------- */
+
+.timeline {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: 2.5rem;
+}
+
+/* the vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.75rem;
+  width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(var(--butter-yellow), var(--deep-sky));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* butter-yellow dot on the line for each job */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  left: -2.25rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--butter-yellow);
+  border: 4px solid var(--navy);
+}
+
+.timeline .date {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.15rem 0.75rem;
+  border-radius: 999px;
+  background: var(--butter-yellow);
+}
+
+.timeline .card h4 {
+  margin-top: 0.6rem;
+}
+
+.timeline .org {
+  font-weight: 600;
+  color: var(--deep-sky);
+}
+
+.timeline ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.timeline li {
+  margin-bottom: 0.35rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.tags span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  border: 2px solid var(--baby-blue);
+}
+
+/* ---------- Buttons (centered) ---------- */
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  min-width: 180px;
+  text-align: center;
+  background-color: var(--butter-yellow);
+  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border: 2px solid var(--navy);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--navy);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.btn:hover {
+  background-color: var(--white);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--navy);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--navy);
+}
+
+.btn.dark {
+  background-color: var(--navy);
+  color: var(--white);
+  box-shadow: 4px 4px 0 var(--butter-yellow);
+}
+
+.btn.dark:hover {
+  background-color: var(--deep-sky);
+  box-shadow: 6px 6px 0 var(--butter-yellow);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ---------- Small screens ---------- */
+
+/* stack the photo under the name on narrow screens */
+@media (max-width: 720px) {
+  /* icons sit above the nav instead of overlapping it */
+  .social {
+    position: static;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .name::after {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .portrait {
+    width: 190px;
+    height: 190px;
+  }
+
+  .shape-ring-dashed {
+    width: 180px;
+    height: 180px;
+  }
+
+  .btn {
+    min-width: 100%;
+  }
 }
